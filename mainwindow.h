@@ -25,6 +25,7 @@ public:
     ~MainWindow();
     QGraphicsScene *scene;
     pacman *personaje;
+    void keyPressEvent(QKeyEvent *evento);
 
 private:
     Ui::MainWindow *ui;

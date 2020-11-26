@@ -6,16 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>570</width>
-    <height>558</height>
+    <width>463</width>
+    <height>594</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Pacman</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">
-background-color: rgb(255, 255, 255);</string>
+   <string notr="true">background-color: rgb(56, 64, 98);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGraphicsView" name="visorGrafico">
@@ -23,19 +22,19 @@ background-color: rgb(255, 255, 255);</string>
      <rect>
       <x>30</x>
       <y>80</y>
-      <width>500</width>
+      <width>400</width>
       <height>400</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
+     <string notr="true">background-color: rgb(0, 0, 0);
 border-radius:0px;</string>
     </property>
    </widget>
    <widget class="QLabel" name="titulo">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>60</x>
       <y>10</y>
       <width>341</width>
       <height>61</height>
@@ -51,9 +50,9 @@ border-radius:0px;</string>
    <widget class="QPushButton" name="btn_iniciar">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>480</y>
-      <width>261</width>
+      <x>30</x>
+      <y>490</y>
+      <width>191</width>
       <height>41</height>
      </rect>
     </property>
@@ -68,32 +67,45 @@ color:white;</string>
    <widget class="QPushButton" name="btn_salir">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>480</y>
-      <width>251</width>
+      <x>230</x>
+      <y>490</y>
+      <width>201</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(32, 74, 135);
-
-color:white;</string>
+     <string notr="true">color:white;
+background-color: rgb(32, 74, 135);</string>
     </property>
     <property name="text">
      <string>Salir</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>540</y>
+      <width>391</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ffffff;&quot;&gt;Julian Guillermo Zapata Rugeles&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <zorder>titulo</zorder>
    <zorder>visorGrafico</zorder>
    <zorder>btn_iniciar</zorder>
    <zorder>btn_salir</zorder>
+   <zorder>label</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>570</width>
+     <width>463</width>
      <height>24</height>
     </rect>
    </property>

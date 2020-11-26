@@ -19,3 +19,25 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::keyPressEvent(QKeyEvent *evento)
+{
+    if(evento->key()==Qt::Key_W){
+             personaje->coordenada_y=personaje->coordenada_y-2;
+             personaje->comprobar_limite();
+    }
+    if(evento->key()==Qt::Key_S){
+             personaje->coordenada_y=personaje->coordenada_y+2;
+             personaje->comprobar_limite();
+    }
+
+    //---------------  Movimiento horizontal ---------------
+    if(evento->key()==Qt::Key_D){
+             personaje->coordenada_x=personaje->coordenada_x+3;
+             personaje->comprobar_limite();
+    }
+    if(evento->key()==Qt::Key_A){
+             personaje->coordenada_x=personaje->coordenada_x-3;
+             personaje->comprobar_limite();
+    }
+}
+

@@ -20,14 +20,18 @@ public:
     QPixmap *pixmap; //creamos un Qpixmap
     QTimer *controlMovimiento = new QTimer();
 
+    // coordenadas de movimiento //
+    signed int coordenada_x;
+    signed int coordenada_y;
+
+    // funciones publicas //
+    void comprobar_limite();
+
 private:
     // dimensiones de la figura //
     unsigned short int ancho;
     unsigned short int alto;
 
-    // coordenadas de movimiento //
-    unsigned int coordenada_x;
-    unsigned int coordenada_y;
 
     // sprite coordenadas //
     unsigned short int filas;

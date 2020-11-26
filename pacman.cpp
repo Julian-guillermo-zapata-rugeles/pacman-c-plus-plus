@@ -25,6 +25,24 @@ void pacman::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
     painter->drawPixmap(-ancho/2,-alto/2,*pixmap,columnas,0,ancho,alto);
 }
 
+void pacman::comprobar_limite()
+{
+
+    if(coordenada_x<=0){
+        coordenada_x=399;
+    }
+    else if(coordenada_x>400){
+        coordenada_x=1;
+    }
+    else if(coordenada_y<=0){
+        coordenada_y=399;
+    }
+    else if (coordenada_y>400){
+        coordenada_y=0;
+    }
+    setPos(coordenada_x,coordenada_y);
+}
+
 void pacman::cambiarAnimacion()
 {
     columnas=columnas+30;
@@ -32,6 +50,7 @@ void pacman::cambiarAnimacion()
         columnas=0;
     }
      this->update(-ancho/2,-alto/2,ancho,alto);
+    setPos(coordenada_x,coordenada_y);
 
 }
 
