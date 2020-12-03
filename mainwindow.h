@@ -6,7 +6,7 @@
 #include <QKeyEvent>
 #include "pacman.h"
 #include "paredes.h"
-#include <vector>
+#include <QVector>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,6 +23,8 @@ public:
 private:
     QGraphicsScene *scene;
     pacman *personaje;
+    QVector<paredes*> paredon;
+
     void keyPressEvent(QKeyEvent *evento);
     Ui::MainWindow *ui;
 };

@@ -12,6 +12,7 @@ private:
     int y_position;
 public:
     paredes(signed int , signed int , int x, int y);
+    void mostrar_pared();
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget );
 };

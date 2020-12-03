@@ -6,21 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>463</width>
-    <height>594</height>
+    <width>539</width>
+    <height>612</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Pacman</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);</string>
+   <string notr="true">background-color: rgb(18, 7, 61);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="titulo">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>100</x>
       <y>10</y>
       <width>341</width>
       <height>61</height>
@@ -36,8 +36,8 @@
    <widget class="QPushButton" name="btn_iniciar">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>490</y>
+      <x>40</x>
+      <y>520</y>
       <width>191</width>
       <height>41</height>
      </rect>
@@ -53,8 +53,8 @@ color:white;</string>
    <widget class="QPushButton" name="btn_salir">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>490</y>
+      <x>290</x>
+      <y>520</y>
       <width>201</width>
       <height>41</height>
      </rect>
@@ -70,8 +70,8 @@ background-color: rgb(32, 74, 135);</string>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>540</y>
+      <x>70</x>
+      <y>570</y>
       <width>391</width>
       <height>20</height>
      </rect>
@@ -83,11 +83,17 @@ background-color: rgb(32, 74, 135);</string>
    <widget class="QGraphicsView" name="visorGrafico">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>40</x>
       <y>80</y>
-      <width>400</width>
-      <height>400</height>
+      <width>451</width>
+      <height>421</height>
      </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(32, 74, 135);</string>
     </property>
    </widget>
   </widget>
@@ -96,7 +102,7 @@ background-color: rgb(32, 74, 135);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>463</width>
+     <width>539</width>
      <height>24</height>
     </rect>
    </property>

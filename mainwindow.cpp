@@ -11,6 +11,8 @@ Julian Guillermo Zapata Rugeles
 #include <stdexcept>
 #include <iostream>
 #include <vector>
+#include <fstream>
+
 
 using namespace std;
 MainWindow::MainWindow(QWidget *parent)
@@ -20,9 +22,24 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     scene = new QGraphicsScene(0,0,400,400);
     ui->visorGrafico->setScene(scene);
+    ifstream plano_coordenadas;
+    plano_coordenadas.open("coordenadas");
+    int ancho,alto,x,y;
+    while (!plano_coordenadas.eof()) {
+        plano_coordenadas >> ancho >> alto >> x >> y ;
+        cout << ancho <<"-"<<alto <<"-"<< x <<"-"<< y << endl;
+         paredon.push_back(new paredes(ancho,alto,x,y));
+    }
+
+
     personaje = new pacman();
     scene->addItem(personaje);
     scene->setFocusItem(personaje);
+    for (auto& it:paredon) {
+        scene->addItem(it);
+           //it->mostrar_pared();
+           scene->addItem(it);
+    }
 }
 
 MainWindow::~MainWindow()
