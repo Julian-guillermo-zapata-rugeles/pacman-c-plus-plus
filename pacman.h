@@ -26,8 +26,11 @@ public:
 
     // funciones publicas //
     void comprobar_limite();
+    void setMovimiento(char value);
 
 private:
+
+    char movimiento;
     // dimensiones de la figura //
     unsigned short int ancho;
     unsigned short int alto;
@@ -40,6 +43,7 @@ private:
 signals:
     public slots:
         void cambiarAnimacion();
+
 
 
 };

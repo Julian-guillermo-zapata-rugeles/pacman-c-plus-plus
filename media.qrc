@@ -2,5 +2,8 @@
     <qresource prefix="/">
         <file>imagenes/pacman.png</file>
         <file>imagenes/img_pacman.png</file>
+        <file>imagenes/pacman_nuevo.png</file>
+        <file>imagenes/pacman_mini.png</file>
+        <file>imagenes/corriendo.png</file>
     </qresource>
 </RCC>

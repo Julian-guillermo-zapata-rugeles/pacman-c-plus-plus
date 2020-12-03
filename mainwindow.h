@@ -2,15 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QWidget>
-#include <QPainter>
-#include <QGraphicsItem>
-#include <QRectF>
-#include <QDesktopWidget>
-#include <QDebug>
 #include <QGraphicsScene>
 #include <QKeyEvent>
 #include "pacman.h"
+#include "paredes.h"
+#include <vector>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,11 +19,11 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+private:
     QGraphicsScene *scene;
     pacman *personaje;
     void keyPressEvent(QKeyEvent *evento);
-
-private:
     Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H

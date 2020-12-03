@@ -18,11 +18,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    pacman.cpp
+    pacman.cpp \
+    paredes.cpp
 
 HEADERS += \
     mainwindow.h \
-    pacman.h
+    pacman.h \
+    paredes.h
 
 FORMS += \
     mainwindow.ui

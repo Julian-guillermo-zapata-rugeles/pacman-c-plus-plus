@@ -14,23 +14,9 @@
    <string>Pacman</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(56, 64, 98);</string>
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGraphicsView" name="visorGrafico">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>80</y>
-      <width>400</width>
-      <height>400</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 0, 0);
-border-radius:0px;</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="titulo">
     <property name="geometry">
      <rect>
@@ -94,11 +80,16 @@ background-color: rgb(32, 74, 135);</string>
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ffffff;&quot;&gt;Julian Guillermo Zapata Rugeles&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <zorder>titulo</zorder>
-   <zorder>visorGrafico</zorder>
-   <zorder>btn_iniciar</zorder>
-   <zorder>btn_salir</zorder>
-   <zorder>label</zorder>
+   <widget class="QGraphicsView" name="visorGrafico">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>80</y>
+      <width>400</width>
+      <height>400</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

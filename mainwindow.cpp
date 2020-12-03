@@ -1,7 +1,18 @@
+/*
+
+Julian Guillermo Zapata Rugeles
+
+
+*/
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "pacman.h"
+#include "paredes.h"
+#include <stdexcept>
+#include <iostream>
+#include <vector>
 
+using namespace std;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -11,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->visorGrafico->setScene(scene);
     personaje = new pacman();
     scene->addItem(personaje);
-
+    scene->setFocusItem(personaje);
 }
 
 MainWindow::~MainWindow()
@@ -19,25 +30,31 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+
+
 void MainWindow::keyPressEvent(QKeyEvent *evento)
 {
+     //---------------  Movimiento Vertical  ---------------
     if(evento->key()==Qt::Key_W){
-             personaje->coordenada_y=personaje->coordenada_y-2;
-             personaje->comprobar_limite();
+        // caso en el que se quiera dezplazar hacia arriba
+             personaje->setMovimiento('w');
     }
     if(evento->key()==Qt::Key_S){
-             personaje->coordenada_y=personaje->coordenada_y+2;
-             personaje->comprobar_limite();
+        // caso en el que se quiera dezplazar hacia abajo
+             personaje->setMovimiento('s');
     }
+
 
     //---------------  Movimiento horizontal ---------------
     if(evento->key()==Qt::Key_D){
-             personaje->coordenada_x=personaje->coordenada_x+3;
-             personaje->comprobar_limite();
+        // caso en el que se quiera dezplazar hacia arriba
+             personaje->setMovimiento('d');
+
     }
     if(evento->key()==Qt::Key_A){
-             personaje->coordenada_x=personaje->coordenada_x-3;
-             personaje->comprobar_limite();
+        // caso en el que se quiera dezplazar hacia izquierda
+             personaje->setMovimiento('a');
     }
 }
 
