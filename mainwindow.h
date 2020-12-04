@@ -7,6 +7,7 @@
 #include "pacman.h"
 #include "paredes.h"
 #include <QVector>
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,11 +22,16 @@ public:
     ~MainWindow();
 
 private:
+    QVector<paredes*> paredon;
+    QTimer *controlMovimiento = new QTimer();
     QGraphicsScene *scene;
     pacman *personaje;
-    QVector<paredes*> paredon;
-
     void keyPressEvent(QKeyEvent *evento);
     Ui::MainWindow *ui;
+    void construir_paredes();
+private slots:
+    void refrescarPantalla();
+    void on_btn_iniciar_clicked();
+    void eliminarElementos();
 };
 #endif // MAINWINDOW_H

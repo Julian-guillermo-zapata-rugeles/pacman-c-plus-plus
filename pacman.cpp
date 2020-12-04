@@ -2,21 +2,19 @@
 
 pacman::pacman(QObject *parent) : QObject(parent)
 {
+
     movimiento='0';
     // Configuración dimensiones del pixmap //
     ancho=30;
     alto=30;
     //
     // Coordenadas donde se ubicará  pixmap //
-    coordenada_x=200;
+    coordenada_x=210;
     coordenada_y=200;
     //
     filas=0;    // fila del pixmap
     columnas=0; // columnas del pixmap
     pixmap = new QPixmap(":/imagenes/pacman_mini.png");
-
-    controlMovimiento->start(80);
-    connect(controlMovimiento,SIGNAL(timeout()),this,SLOT(cambiarAnimacion()));
     setPos(coordenada_x,coordenada_y);
 
 }
@@ -61,7 +59,18 @@ void pacman::comprobar_limite()
 
 void pacman::setMovimiento(char value)
 {
+    movimiento_anterior=movimiento;
     movimiento = value;
+}
+
+char pacman::getMovimiento() const
+{
+    return movimiento;
+}
+
+char pacman::getMovimiento_anterior() const
+{
+    return movimiento_anterior;
 }
 
 
@@ -94,7 +103,6 @@ void pacman::cambiarAnimacion()
     }
     setPos(coordenada_x,coordenada_y);
     comprobar_limite();
-
 }
 
 

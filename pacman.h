@@ -18,7 +18,7 @@ public:
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget );
     QPixmap *pixmap; //creamos un Qpixmap
-    QTimer *controlMovimiento = new QTimer();
+
 
     // coordenadas de movimiento //
     signed int coordenada_x;
@@ -28,8 +28,12 @@ public:
     void comprobar_limite();
     void setMovimiento(char value);
 
-private:
+    char getMovimiento() const;
 
+    char getMovimiento_anterior() const;
+
+private:
+    char movimiento_anterior;
     char movimiento;
     // dimensiones de la figura //
     unsigned short int ancho;

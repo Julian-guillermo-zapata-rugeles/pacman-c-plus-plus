@@ -47,7 +47,7 @@
 color:white;</string>
     </property>
     <property name="text">
-     <string>Iniciar</string>
+     <string>Reconstruir</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btn_salir">
