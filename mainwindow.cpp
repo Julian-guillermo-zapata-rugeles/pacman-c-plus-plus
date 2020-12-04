@@ -20,14 +20,20 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    // unico timer del vídeojuego.
     controlMovimiento->start(80);
     connect(controlMovimiento,SIGNAL(timeout()),this,SLOT(refrescarPantalla()));
+
+    // creación de la escena
     scene = new QGraphicsScene(0,0,400,400);
     ui->visorGrafico->setScene(scene);
-    construir_paredes();
+
+    // creación de las paredes y moendas
+    construir(true,"coordenadas");
+    construir(false,"monedero");
+
+    // añadir personajes a la escena
     personaje = new pacman();
-    money = new monedas(10,10,10,10);
-    scene->addItem(money);
     scene->addItem(personaje);
     scene->setFocusItem(personaje);
 
@@ -66,25 +72,44 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
 
 }
 
-void MainWindow::construir_paredes()
+void MainWindow::construir(bool mode,string file)
 {
-    paredon.clear();
+    if(mode==true){
+           paredon.clear();
+    }
+    else{
+           monedero.clear();
+    }
     ifstream plano_coordenadas;
-    plano_coordenadas.open("coordenadas");
+    plano_coordenadas.open(file);
     int ancho,alto,x,y;
     while (!plano_coordenadas.eof()) {
         plano_coordenadas >> ancho >> alto >> x >> y ;
         cout << ancho <<"-"<<alto <<"-"<< x <<"-"<< y << endl;
-         paredon.push_back(new paredes(ancho,alto,x,y));
 
+        if(mode==true){
+            paredon.push_back(new paredes(ancho,alto,x,y));
+        }
+        else{
+            monedero.push_back(new monedas(ancho,alto,x,y));
+            }
+
+        }
+    if(mode==true){
+        for (auto& it:paredon) {
+            scene->addItem(it);
+               scene->addItem(it);
+        }
     }
-    for (auto& it:paredon) {
-        scene->addItem(it);
-           //it->mostrar_pared();
-           scene->addItem(it);
+    else{
+        for (auto& it:monedero) {
+            scene->addItem(it);
+               scene->addItem(it);
+        }
     }
     //scene->advance();
 }
+
 
 
 
@@ -114,12 +139,16 @@ void MainWindow::refrescarPantalla()
 void MainWindow::on_btn_iniciar_clicked()
 {
     eliminarElementos();
-    construir_paredes();
+    construir(true,"coordenadas");
+    construir(false,"monedero");
 }
 
 void MainWindow::eliminarElementos()
 {
      for(auto& it:paredon){
+         scene->removeItem(it);
+     }
+     for(auto& it:monedero){
          scene->removeItem(it);
      }
 }

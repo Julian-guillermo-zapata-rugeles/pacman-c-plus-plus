@@ -23,15 +23,18 @@ public:
     ~MainWindow();
 
 private:
-    QVector<paredes*> paredon;
-    QTimer *controlMovimiento = new QTimer();
+    QVector<monedas*> monedero; // vectores con objetos
+    QVector<paredes*> paredon; // vectores con objetos
+
+    QTimer *controlMovimiento = new QTimer(); // unico timer.
     QGraphicsScene *scene;
-    pacman *personaje;
-    monedas *money;
+    pacman *personaje; // personaje principal PACMAN
 
     void keyPressEvent(QKeyEvent *evento);
     Ui::MainWindow *ui;
-    void construir_paredes();
+
+    void construir(bool,std::string); // función para agregar en la escena las paredes y monedas
+
 private slots:
     void refrescarPantalla();
     void on_btn_iniciar_clicked();
