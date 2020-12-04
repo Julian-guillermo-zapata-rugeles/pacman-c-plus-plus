@@ -26,6 +26,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->visorGrafico->setScene(scene);
     construir_paredes();
     personaje = new pacman();
+    money = new monedas(10,10,10,10);
+    scene->addItem(money);
     scene->addItem(personaje);
     scene->setFocusItem(personaje);
 
@@ -81,7 +83,7 @@ void MainWindow::construir_paredes()
            //it->mostrar_pared();
            scene->addItem(it);
     }
-    scene->advance();
+    //scene->advance();
 }
 
 

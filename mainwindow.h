@@ -8,6 +8,7 @@
 #include "paredes.h"
 #include <QVector>
 #include <QTimer>
+#include <monedas.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -26,6 +27,8 @@ private:
     QTimer *controlMovimiento = new QTimer();
     QGraphicsScene *scene;
     pacman *personaje;
+    monedas *money;
+
     void keyPressEvent(QKeyEvent *evento);
     Ui::MainWindow *ui;
     void construir_paredes();

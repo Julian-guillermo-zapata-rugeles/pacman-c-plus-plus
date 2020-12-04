@@ -93,7 +93,7 @@ background-color: rgb(32, 74, 135);</string>
      <enum>Qt::RightToLeft</enum>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(32, 74, 135);</string>
+     <string notr="true">background-color: rgb(41, 17, 88);</string>
     </property>
    </widget>
   </widget>
