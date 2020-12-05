@@ -125,7 +125,7 @@ void MainWindow::construir(bool mode,string file)
 
 void MainWindow::construir_enemigos()
 {
-    for(unsigned short int a=0;a<3;a++){
+    for(unsigned short int a=fantasmas_a_escena;a<3;a++){
         vector_fantasmas.push_back(new fantasmas());
     }
     for(auto& it:vector_fantasmas){
