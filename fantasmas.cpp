@@ -20,6 +20,10 @@ void fantasmas::cambiar_direccion_fantasma()
 {
     velocidad=3;
     int direccion=0+rand()%4;
+    while ('a'+direccion==direction) {
+           direccion=0+rand()%4;
+    }
+
     std::cout <<"direccion :"<< direccion <<std::endl;
     if(direccion==0){
         direction='w';
@@ -59,16 +63,16 @@ void fantasmas::setVelocidad(unsigned short value)
 void fantasmas::colision()
 {
     if(direction=='w'){
-        coordenada_y+=3;
+        coordenada_y+=4;
     }
     else if(direction=='s'){
-        coordenada_y-=3;
+        coordenada_y-=4;
     }
     else if(direction=='a'){
-        coordenada_x+=3;
+        coordenada_x+=4;
     }
     else if(direction=='d'){
-       coordenada_x-=3;
+       coordenada_x-=4;
     }
     velocidad=0;
   ;

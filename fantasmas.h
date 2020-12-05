@@ -11,8 +11,6 @@ class fantasmas : public QObject , public QGraphicsItem
 public:
     explicit fantasmas(QObject *parent = nullptr);
     void cambiar_direccion_fantasma();
-
-
     unsigned short getVelocidad() const;
     void setVelocidad(unsigned short value);
     void mover_fantasmas();
