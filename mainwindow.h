@@ -29,7 +29,7 @@ private:
     bool inicio_juego=true;
     bool fin_juego=false;
     bool fantasmas_a_escena=false;
-    unsigned short int NumeroFantasmas=5;
+    unsigned short int NumeroFantasmas=6;
     unsigned short int ticks=0;
     unsigned short int fantasma_ticks=0;
     unsigned short int puntaje=0;

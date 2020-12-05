@@ -125,7 +125,7 @@ void MainWindow::construir(bool mode,string file)
 
 void MainWindow::construir_enemigos()
 {
-    for(unsigned short int a=fantasmas_a_escena;a<3;a++){
+    for(unsigned short int a=0;a<NumeroFantasmas;a++){
         vector_fantasmas.push_back(new fantasmas());
     }
     for(auto& it:vector_fantasmas){
@@ -153,6 +153,8 @@ void MainWindow::refrescarPantalla()
         ui->visorGrafico->hide();
         ui->label_2->setText("GANASTE");
         ui->label_2->setStyleSheet("font-size:36pt; font-weight:600; color:#fce94f");
+        eliminarElementos();
+        controlMovimiento->stop();
     }
     else if(monedero.size()<10){
         scene->setBackgroundBrush(Qt::red);
@@ -166,11 +168,12 @@ void MainWindow::refrescarPantalla()
         for(auto& fan:vector_fantasmas){
             if(fan->collidesWithItem(personaje)){
                 //
-
                 ui->label_2->setText(QString::number(puntaje)+" Puntos (Perdiste)");
                 ui->label_2->setStyleSheet("font-size:18pt; font-weight:600; color:red");
                 ui->visorGrafico->hide();
-                personaje->disconnect();
+                controlMovimiento->stop();
+                melodia->setMedia(QUrl("qrc:/pacman_death.wav"));
+                melodia->play();
                 fin_juego=true;
                 //eliminarElementos();
             }
@@ -237,25 +240,39 @@ void MainWindow::on_btn_iniciar_clicked()
     eliminarElementos();
     construir(true,"coordenadas");
     construir(false,"monedero");
-    construir_enemigos();
+    melodia->setMedia(QUrl("qrc:/pacman-song.mp3"));
+    fantasmas_a_escena=false;
+    fin_juego=false;
+    inicio_juego=true;
+    personaje=new pacman();
+    scene->addItem(personaje);
+    personaje->show();
+    melodia->play();
     ui->visorGrafico->show();
+    controlMovimiento->start(50);
 }
 
 void MainWindow::eliminarElementos()
 {
     for(auto& it:paredon){
+        //paredon.erase(std::remove(paredon.begin(),paredon.end(),it),paredon.end());
         scene->removeItem(it);
-        paredon.erase(std::remove(paredon.begin(),paredon.end(),it),paredon.end());
     }
     for(auto& it:monedero){
+        //monedero.erase(std::remove(monedero.begin(),monedero.end(),it),monedero.end());
         scene->removeItem(it);
-        monedero.erase(std::remove(monedero.begin(),monedero.end(),it),monedero.end());
+
     }
     for(auto& it:vector_fantasmas){
+        //vector_fantasmas.erase(std::remove(vector_fantasmas.begin(),vector_fantasmas.end(),it),vector_fantasmas.end());
         scene->removeItem(it);
-        vector_fantasmas.erase(std::remove(vector_fantasmas.begin(),vector_fantasmas.end(),it),vector_fantasmas.end());
     }
+
     scene->removeItem(personaje);
+    vector_fantasmas.clear();
+    paredon.clear();
+    monedero.clear();
+
 }
 
 void MainWindow::on_btn_salir_clicked()
