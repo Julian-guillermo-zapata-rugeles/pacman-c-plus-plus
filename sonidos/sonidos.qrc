@@ -4,5 +4,6 @@
         <file>inicio.wav</file>
         <file>comer.wav</file>
         <file>pacman_death.wav</file>
+        <file>ganador.mp3</file>
     </qresource>
 </RCC>

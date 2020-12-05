@@ -153,6 +153,8 @@ void MainWindow::refrescarPantalla()
         ui->visorGrafico->hide();
         ui->label_2->setText("GANASTE");
         ui->label_2->setStyleSheet("font-size:36pt; font-weight:600; color:#fce94f");
+        melodia->setMedia(QUrl("qrc:/ganador.mp3"));
+        melodia->play();
         eliminarElementos();
         controlMovimiento->stop();
     }
