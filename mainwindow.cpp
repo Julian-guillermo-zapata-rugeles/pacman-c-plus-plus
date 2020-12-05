@@ -12,7 +12,8 @@ Julian Guillermo Zapata Rugeles
 #include <iostream>
 #include <vector>
 #include <fstream>
-
+#include <QMediaPlayer>
+#include <QString>
 
 using namespace std;
 MainWindow::MainWindow(QWidget *parent)
@@ -21,7 +22,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     // unico timer del vídeojuego.
-    controlMovimiento->start(80);
+    melodia->setMedia(QUrl("qrc:/pacman-song.mp3"));
+    controlMovimiento->start(50);
     connect(controlMovimiento,SIGNAL(timeout()),this,SLOT(refrescarPantalla()));
 
     // creación de la escena
@@ -36,7 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
     personaje = new pacman();
     scene->addItem(personaje);
     scene->setFocusItem(personaje);
-
+    ui->visorGrafico->hide();
 }
 
 MainWindow::~MainWindow()
@@ -52,10 +54,12 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
     if(evento->key()==Qt::Key_W){
             // caso en el que se quiera dezplazar hacia arriba
                  personaje->setMovimiento('w');
+                 personaje->setRotation(-90);
     }
     if(evento->key()==Qt::Key_S){
         // caso en el que se quiera dezplazar hacia abajo
                  personaje->setMovimiento('s');
+                 personaje->setRotation(90);
     }
 
 
@@ -63,17 +67,23 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
     if(evento->key()==Qt::Key_D){
         // caso en el que se quiera dezplazar hacia derecha
                  personaje->setMovimiento('d');
+                 personaje->setRotation(0);
 
     }
     if(evento->key()==Qt::Key_A){
         // caso en el que se quiera dezplazar hacia izquierda
                  personaje->setMovimiento('a');
+                 personaje->setRotation(180);
     }
 
 }
 
 void MainWindow::construir(bool mode,string file)
 {
+    puntaje=0;
+    ui->marcador->setText(QString::number(puntaje));
+    ui->marcador->setStyleSheet("font-size:20pt; font-weight:600; color:#fce94f");
+    melodia->play();
     if(mode==true){
            paredon.clear();
     }
@@ -107,7 +117,7 @@ void MainWindow::construir(bool mode,string file)
                scene->addItem(it);
         }
     }
-    //scene->advance();
+
 }
 
 
@@ -115,11 +125,28 @@ void MainWindow::construir(bool mode,string file)
 
 void MainWindow::refrescarPantalla()
 {
+    if(melodia->state()==QMediaPlayer::StoppedState){
+        ui->visorGrafico->show();
+        melodia->setMedia(QUrl("qrc:/comer.wav"));
+    }
     personaje->cambiarAnimacion();
+    unsigned short int i=0;
+    if(monedero.size()==0){
+        ui->visorGrafico->hide();
+        ui->label_2->setText("GANASTE");
+        ui->label_2->setStyleSheet("font-size:36pt; font-weight:600; color:#fce94f");
+    }
     for(auto& mon:monedero){
         if(personaje->collidesWithItem(mon)){
+            melodia->play();
             scene->removeItem(mon);
+            monedero.erase(std::remove(monedero.begin(),monedero.end(),mon),monedero.end());
+            puntaje=puntaje+1;
+            std::cout << " restantes "<<monedero.size() <<std::endl;
+            ui->marcador->setText(QString::number(puntaje));
+            ui->marcador->setStyleSheet("font-size:20pt; font-weight:600; color:#fce94f");
         }
+        i++;
     }
     for(auto& it:paredon){
         if(personaje->collidesWithItem(it)){
@@ -156,4 +183,9 @@ void MainWindow::eliminarElementos()
      for(auto& it:monedero){
          scene->removeItem(it);
      }
+}
+
+void MainWindow::on_btn_salir_clicked()
+{
+    exit(0);
 }

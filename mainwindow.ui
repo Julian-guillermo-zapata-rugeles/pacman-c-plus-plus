@@ -36,10 +36,10 @@
    <widget class="QPushButton" name="btn_iniciar">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>520</y>
-      <width>191</width>
-      <height>41</height>
+      <x>470</x>
+      <y>30</y>
+      <width>41</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -47,15 +47,15 @@
 color:white;</string>
     </property>
     <property name="text">
-     <string>Reconstruir</string>
+     <string>?</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btn_salir">
     <property name="geometry">
      <rect>
-      <x>290</x>
+      <x>40</x>
       <y>520</y>
-      <width>201</width>
+      <width>451</width>
       <height>41</height>
      </rect>
     </property>
@@ -96,6 +96,54 @@ background-color: rgb(32, 74, 135);</string>
      <string notr="true">background-color: rgb(41, 17, 88);</string>
     </property>
    </widget>
+   <widget class="QLabel" name="marcador">
+    <property name="geometry">
+     <rect>
+      <x>16</x>
+      <y>20</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; font-weight:600; color:#fce94f;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::RichText</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>190</y>
+      <width>421</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(18, 7, 61);</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt; font-weight:600; color:#fce94f;&quot;&gt;PREPARATE &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <zorder>label_2</zorder>
+   <zorder>titulo</zorder>
+   <zorder>btn_iniciar</zorder>
+   <zorder>btn_salir</zorder>
+   <zorder>label</zorder>
+   <zorder>visorGrafico</zorder>
+   <zorder>marcador</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

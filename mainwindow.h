@@ -8,7 +8,8 @@
 #include "paredes.h"
 #include <QVector>
 #include <QTimer>
-#include <monedas.h>
+#include "monedas.h"
+#include <QMediaPlayer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -25,19 +26,19 @@ public:
 private:
     QVector<monedas*> monedero; // vectores con objetos
     QVector<paredes*> paredon; // vectores con objetos
-
     QTimer *controlMovimiento = new QTimer(); // unico timer.
     QGraphicsScene *scene;
     pacman *personaje; // personaje principal PACMAN
-
+    QMediaPlayer *melodia = new QMediaPlayer;
     void keyPressEvent(QKeyEvent *evento);
     Ui::MainWindow *ui;
-
+    unsigned short int puntaje=0;
     void construir(bool,std::string); // función para agregar en la escena las paredes y monedas
 
 private slots:
     void refrescarPantalla();
     void on_btn_iniciar_clicked();
     void eliminarElementos();
+    void on_btn_salir_clicked();
 };
 #endif // MAINWINDOW_H

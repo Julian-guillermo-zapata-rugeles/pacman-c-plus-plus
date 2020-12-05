@@ -5,5 +5,7 @@
         <file>imagenes/pacman_nuevo.png</file>
         <file>imagenes/pacman_mini.png</file>
         <file>imagenes/corriendo.png</file>
+        <file>sonidos/pacman-song.mp3</file>
+        <file>sonidos/inicio.wav</file>
     </qresource>
 </RCC>
