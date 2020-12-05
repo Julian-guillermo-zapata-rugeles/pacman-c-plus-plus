@@ -10,6 +10,7 @@
 #include <QTimer>
 #include "monedas.h"
 #include <QMediaPlayer>
+#include "fantasmas.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -24,11 +25,15 @@ public:
     ~MainWindow();
 
 private:
+    bool inicio_juego=false;
+    unsigned short int ticks=0;
+    unsigned short int fantasma_ticks=0;
     QVector<monedas*> monedero; // vectores con objetos
     QVector<paredes*> paredon; // vectores con objetos
     QTimer *controlMovimiento = new QTimer(); // unico timer.
     QGraphicsScene *scene;
     pacman *personaje; // personaje principal PACMAN
+    fantasmas *p_fantasma;
     QMediaPlayer *melodia = new QMediaPlayer;
     void keyPressEvent(QKeyEvent *evento);
     Ui::MainWindow *ui;

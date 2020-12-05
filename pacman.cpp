@@ -63,6 +63,23 @@ void pacman::setMovimiento(char value)
     movimiento = value;
 }
 
+void pacman::colision()
+{
+    if(getMovimiento()=='w'){
+        coordenada_y+=5;
+    }
+    else if(getMovimiento()=='s'){
+        coordenada_y-=5;
+    }
+    else if(getMovimiento()=='a'){
+        coordenada_x+=5;
+    }
+    else if(getMovimiento()=='d'){
+       coordenada_x-=5;
+    }
+    setMovimiento('0');
+}
+
 char pacman::getMovimiento() const
 {
     return movimiento;

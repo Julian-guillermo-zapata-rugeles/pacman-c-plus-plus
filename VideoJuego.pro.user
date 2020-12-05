@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.12.4, 2020-12-04T18:01:21. -->
+<!-- Written by QtCreator 4.12.4, 2020-12-04T22:38:02. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -8,7 +8,7 @@
  </data>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
-  <value type="int">0</value>
+  <value type="int">1</value>
  </data>
  <data>
   <variable>ProjectExplorer.Project.EditorSettings</variable>
@@ -255,8 +255,9 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/static/Escritorio/UNIVERSIDAD/informaticaII/biblioteca/VideoJuego/VideoJuego.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/static/Escritorio/UNIVERSIDAD/informaticaII/biblioteca/VideoJuego/VideoJuego.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">VideoJuego2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/static/Escritorio/UNIVERSIDAD/informaticaII/pacman/VideoJuego/VideoJuego.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/static/Escritorio/UNIVERSIDAD/informaticaII/pacman/VideoJuego/VideoJuego.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>
@@ -509,8 +510,9 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/static/Escritorio/UNIVERSIDAD/informaticaII/biblioteca/VideoJuego/VideoJuego.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/static/Escritorio/UNIVERSIDAD/informaticaII/biblioteca/VideoJuego/VideoJuego.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">VideoJuego2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/static/Escritorio/UNIVERSIDAD/informaticaII/pacman/VideoJuego/VideoJuego.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/static/Escritorio/UNIVERSIDAD/informaticaII/pacman/VideoJuego/VideoJuego.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>

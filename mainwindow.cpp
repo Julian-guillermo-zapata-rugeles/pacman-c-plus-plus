@@ -36,7 +36,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     // añadir personajes a la escena
     personaje = new pacman();
+    p_fantasma = new fantasmas();
+    p_fantasma->cambiar_direccion_fantasma();
+
     scene->addItem(personaje);
+    scene->addItem(p_fantasma);
+
     scene->setFocusItem(personaje);
     ui->visorGrafico->hide();
 }
@@ -50,32 +55,34 @@ MainWindow::~MainWindow()
 
 void MainWindow::keyPressEvent(QKeyEvent *evento)
 {
+    if(inicio_juego==true){
      //---------------  Movimiento Vertical  ---------------
-    if(evento->key()==Qt::Key_W){
-            // caso en el que se quiera dezplazar hacia arriba
-                 personaje->setMovimiento('w');
-                 personaje->setRotation(-90);
-    }
-    if(evento->key()==Qt::Key_S){
-        // caso en el que se quiera dezplazar hacia abajo
-                 personaje->setMovimiento('s');
-                 personaje->setRotation(90);
-    }
+        if(evento->key()==Qt::Key_W){
+                // caso en el que se quiera dezplazar hacia arriba
+                     personaje->setMovimiento('w');
+                     personaje->setRotation(-90);
+        }
+        if(evento->key()==Qt::Key_S){
+            // caso en el que se quiera dezplazar hacia abajo
+                     personaje->setMovimiento('s');
+                     personaje->setRotation(90);
+        }
 
 
-    //---------------  Movimiento horizontal ---------------
-    if(evento->key()==Qt::Key_D){
-        // caso en el que se quiera dezplazar hacia derecha
-                 personaje->setMovimiento('d');
-                 personaje->setRotation(0);
+        //---------------  Movimiento horizontal ---------------
+        if(evento->key()==Qt::Key_D){
+            // caso en el que se quiera dezplazar hacia derecha
+                     personaje->setMovimiento('d');
+                     personaje->setRotation(0);
 
-    }
-    if(evento->key()==Qt::Key_A){
-        // caso en el que se quiera dezplazar hacia izquierda
-                 personaje->setMovimiento('a');
-                 personaje->setRotation(180);
-    }
+        }
+        if(evento->key()==Qt::Key_A){
+            // caso en el que se quiera dezplazar hacia izquierda
+                     personaje->setMovimiento('a');
+                     personaje->setRotation(180);
+        }
 
+}
 }
 
 void MainWindow::construir(bool mode,string file)
@@ -106,6 +113,7 @@ void MainWindow::construir(bool mode,string file)
 
         }
     if(mode==true){
+
         for (auto& it:paredon) {
             scene->addItem(it);
                scene->addItem(it);
@@ -125,9 +133,17 @@ void MainWindow::construir(bool mode,string file)
 
 void MainWindow::refrescarPantalla()
 {
+    if(fantasma_ticks>50){
+        p_fantasma->cambiar_direccion_fantasma();
+        fantasma_ticks=0;
+    }
+    fantasma_ticks=fantasma_ticks+1;
     if(melodia->state()==QMediaPlayer::StoppedState){
         ui->visorGrafico->show();
         melodia->setMedia(QUrl("qrc:/comer.wav"));
+        inicio_juego=true;
+        p_fantasma->mover_fantasmas();
+        p_fantasma->comprobar_limite();
     }
     personaje->cambiarAnimacion();
     unsigned short int i=0;
@@ -135,6 +151,9 @@ void MainWindow::refrescarPantalla()
         ui->visorGrafico->hide();
         ui->label_2->setText("GANASTE");
         ui->label_2->setStyleSheet("font-size:36pt; font-weight:600; color:#fce94f");
+    }
+    else if(monedero.size()<10){
+        scene->setBackgroundBrush(Qt::red);
     }
     for(auto& mon:monedero){
         if(personaje->collidesWithItem(mon)){
@@ -149,22 +168,30 @@ void MainWindow::refrescarPantalla()
         i++;
     }
     for(auto& it:paredon){
-        if(personaje->collidesWithItem(it)){
-            if(personaje->getMovimiento()=='w'){
-                personaje->coordenada_y+=5;
-            }
-            else if(personaje->getMovimiento()=='s'){
-                personaje->coordenada_y-=5;
-            }
-            else if(personaje->getMovimiento()=='a'){
-                personaje->coordenada_x+=5;
-            }
-            else if(personaje->getMovimiento()=='d'){
-                personaje->coordenada_x-=5;
-            }
-            personaje->setMovimiento('0');
+        if(p_fantasma->collidesWithItem(it)){
+            p_fantasma->colision();
+            p_fantasma->cambiar_direccion_fantasma();
+
         }
+        if(personaje->collidesWithItem(it)){
+            personaje->colision();
+        }
+        for(auto& it:monedero){
+
+            if(ticks < 10){
+               it->setOpacity(0.5);
+            }
+            else if(ticks >=10 && ticks<20){
+                it->setOpacity(1);
+            }
+            else{
+                ticks=0;
+            }
+         }
     }
+    ticks=ticks+1;
+    cout << "ticks "<<ticks << endl;
+
 }
 
 

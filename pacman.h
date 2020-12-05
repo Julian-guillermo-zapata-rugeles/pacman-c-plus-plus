@@ -27,7 +27,7 @@ public:
     // funciones publicas //
     void comprobar_limite();
     void setMovimiento(char value);
-
+    void colision();
     char getMovimiento() const;
 
     char getMovimiento_anterior() const;

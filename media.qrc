@@ -7,5 +7,6 @@
         <file>imagenes/corriendo.png</file>
         <file>sonidos/pacman-song.mp3</file>
         <file>sonidos/inicio.wav</file>
+        <file>imagenes/fantasma.png</file>
     </qresource>
 </RCC>

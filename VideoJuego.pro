@@ -16,6 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    fantasmas.cpp \
     main.cpp \
     mainwindow.cpp \
     monedas.cpp \
@@ -23,6 +24,7 @@ SOURCES += \
     paredes.cpp
 
 HEADERS += \
+    fantasmas.h \
     mainwindow.h \
     monedas.h \
     pacman.h \
