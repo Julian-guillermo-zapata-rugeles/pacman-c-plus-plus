@@ -116,6 +116,11 @@ void MainWindow::construir(bool mode,string file)
 void MainWindow::refrescarPantalla()
 {
     personaje->cambiarAnimacion();
+    for(auto& mon:monedero){
+        if(personaje->collidesWithItem(mon)){
+            scene->removeItem(mon);
+        }
+    }
     for(auto& it:paredon){
         if(personaje->collidesWithItem(it)){
             if(personaje->getMovimiento()=='w'){

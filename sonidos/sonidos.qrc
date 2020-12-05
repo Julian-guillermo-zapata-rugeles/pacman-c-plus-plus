@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>pacman-song.mp3</file>
+        <file>inicio.wav</file>
+        <file>comer.wav</file>
+    </qresource>
+</RCC>
